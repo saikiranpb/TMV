@@ -25,6 +25,7 @@ function showMovies(movies) {
   main.innerHTML = "";
 
   movies.results.forEach(movie => {
+    if(movie.poster_path!=null){
     const movieElt = document.createElement("div");
     movieElt.classList.add("movie");
     const date = movie.release_date;
@@ -42,6 +43,7 @@ function showMovies(movies) {
         </div>`;
 
     main.appendChild(movieElt);
+  }
     console.log(movie);
   });
 }
