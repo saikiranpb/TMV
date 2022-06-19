@@ -72,11 +72,16 @@ main {
   position: relative;
   width: 270px;
   background-color: rgb(89, 65, 136);
-  border-radius: 0px;
+  border-radius: 5px;
   margin: 1rem;
   box-shadow: 0 7px 7px rgb(27 17 46);
   overflow: hidden;
 }
+/* .movie:hover{
+  transition: ease-out 0.5s;
+  width: 280px;
+  margin: 0.4rem;
+} */
 .movie img {
   object-fit: cover;
   height: 360px;
@@ -113,7 +118,8 @@ main {
 }
 
 .overview {
-  background-color: white;
+  background-color: rgba(40, 40, 40, 0.925) ;
+  color: white;
   padding: 1.5rem;
   position: absolute;
   max-height: 100%;
@@ -123,7 +129,8 @@ main {
   bottom: 0;
   transform: translateY(101%);
   font-size: 16px;
-  transition: transform 0.3s ease-in;
+  font-weight: 500;
+  transition: transform 0.425s ease-in;
 }
 .overview h4 {
   margin-top: 0;
@@ -166,8 +173,14 @@ footer {
   .search {
     width: 210px;
   }
+  .short{
+    display: inline-block;
+  }
+  .long{
+    display: none;
+  }
 }
-@media screen and (min-width: 480px) and (max-width: 700px) {
+@media screen and (min-width: 480px) and (max-width: 720px) {
   .left {
     width: 30%;
     padding-left: 0rem;
@@ -177,4 +190,19 @@ footer {
     padding-right: 0.5rem;
     width: 100%;
   }
+  .short{
+    display: inline-block;
+  }
+  .long{
+    display: none;
+  }
+}
+@media screen and (min-width: 720px){
+  .short{
+    display: none;
+  }
+  .long{
+    display: inline-block;
+  }
+
 }

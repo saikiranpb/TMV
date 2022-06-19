@@ -25,28 +25,32 @@ function showMovies(movies) {
   main.innerHTML = "";
 
   movies.results.forEach(movie => {
-    if(movie.poster_path!=null){
+
+  let {title,poster_path,vote_average,release_date}=movie;
+
+    if(poster_path!=null){
     const movieElt = document.createElement("div");
     movieElt.classList.add("movie");
-    const date = movie.release_date;
+    const date = release_date;
     const year = date.slice(0, 4);
     movieElt.innerHTML = 
-       `<img src="${IMGPATH + movie.poster_path}" alt="${movie.title}" srcset="">
+       `<img src="${IMGPATH + movie.poster_path}" alt="${title}" srcset="">
         <div class="titleInfo">
-            <h3>${movie.title}</h3>
-            <span class=${getClassByRate(movie.vote_average)}>${movie.vote_average}</span>
+            <h3>${title}</h3>
+            <span class=${getClassByRate(vote_average)}>${vote_average}</span>
         </div>
         <div class="overview">
-            <h4>Year: ${year}</h4>
-            <h4>Overview:</h4>
-            ${movie.overview}
-        </div>`;
+        <h4>Year: ${year}</h4>
+        <h4>Overview:</h4>
+        ${movie.overview}
+      </div> 
+        `;
 
     main.appendChild(movieElt);
-  }
+    }
     console.log(movie);
   });
-}
+  }
 
 function getClassByRate(vote) {
   if (vote >= 8) return "green";
